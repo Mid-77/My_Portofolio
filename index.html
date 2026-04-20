@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Muhammad Ibrahim Danno</title>
+    <style>
+
+        /* CSS-Standardstile und Grundlege*/
+        /*  Global Farbvariablen um die Farben konsistent zu halten  */
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-bg: #ecf0f1;
+            --text-color: #333;
+            --white: #ffffff;
+        }
+
+        /* Unverselle Stileinstellungen um die Standardränder und Abstände zu definieren */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav h1 {
+            font-size: 1.5rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--secondary-color);
+        }
+
+        .hero {
+            background: linear-gradient(rgba(44, 62, 80, 0.6), rgba(44, 62, 80, 0.6)), url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=1600') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            padding-top: 60px;
+        }
+
+        .hero-content img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%; 
+            object-fit: cover; 
+            border: 3px solid var(--white);
+            margin-bottom: 20px;
+        }
+
+        .hero-content h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn1 {
+            display: inline-block;
+            background:#244c79 ;
+            color: var(--white);
+            padding: 10px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s;
+            margin: 5px;
+        }
+
+        .btn1:hover {
+            background: #b3d7eb;
+        }
+
+        .btn2 {
+            display: inline-block;
+            background:#933b3b;
+            color: var(--white);
+            padding: 10px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s;
+            margin: 5px;
+        }
+
+        .btn2:hover {
+            background: #b5ccda;
+        }
+
+        .btn3 {
+            display: inline-block;
+            background:#324ea2;
+            color: var(--white);
+            padding: 5px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s;
+            
+            margin-top: 10px;
+        }
+
+        .btn3:hover {
+            background: #b5ccda;
+        }
+
+        .Status-Anzeige {
+            background: var(--accent-color);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 15px;
+            color: var(--white);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        section {
+            background: var(--white);
+            padding: 40px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            border-color: var(--secondary-color);
+            border-width: 1px;
+            border-style: solid;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h3 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .Fähigkeiten-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .Fähigkeit-category h4 {
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+
+        .Fähigkeit-tags span {
+            display: inline-block;
+            background: var(--light-bg);
+            padding: 5px 10px;
+            margin: 3px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            border: 1px solid #ddd;
+        }
+
+        .Ausbildungsweg Anwendungen-Karte {
+            border-left: 4px solid var(--secondary-color);
+            padding-left: 20px;
+            margin-bottom: 20px;
+            background: var(--light-bg);
+            padding: 15px 20px;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .Ausbildungsweg Anwendungen-Karte h4 {
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .Zeitleiste {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .Zeitleiste:last-child {
+            border-bottom: none;
+        }
+
+        .Datum {
+            color: var(--secondary-color);
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        
+        .zertifikate-grid { 
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .zertifikate-item {
+            background: var(--light-bg);
+            padding: 15px;
+            border-radius: 5px;
+            flex: 1;
+            min-width: 250px;
+            border-top: 3px solid var(--primary-color);
+        }
+
+        .Kontakt-info {
+            list-style: none;
+        }
+
+        .Kontakt-info li {
+            margin-bottom: 10px;
+        }
+
+        .Kontakt-info a {
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+
+        footer {
+            background: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .Btn2 {
+            color: var(--accent-color);
+            font-size: 15px;
+            font-weight: bolder;
+            justify-content: center;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+        }
+
+        .Btn2:hover {
+            text-decoration: underline;
+            border: 1px solid rgb(209, 63, 14);
+            box-shadow: none;
+        }
+
+        /* müsste hinzugefügt werden: / Basic Responsiveness / um die seite zu optimieren mit allen Geräten */
+        @media (max-width: 768px) {
+        .hero-content h2 {
+        font-size: 2rem;
+        }
+
+        nav ul {
+        display: none;
+        }
+
+        section {
+        padding: 25px 15px;
+        }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <h1>M. Ibrahim Danno</h1>
+            <ul>
+                <li><a href="#Über mich">Über mich</a></li>
+                <li><a href="#Fähigkeiten">Fähigkeiten</a></li>
+                <li><a href="#Ausbildungsweg Anwendungen">Ausbildungsweg Anwendungen</a></li>
+                <li><a href="#Werdegang">Werdegang</a></li>
+                <li><a href="#Kontakt">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <div class="hero-content">
+            <img src ='bild/Personal_01.png' alt="Profilbild" > <br> 
+            <div class="Status-Anzeige">Suche Pflichtpraktikum (Mai 2026 - Feb 2027)</div>
+            <h2>Fachinformatiker<br>Anwendungsentwicklung</h2>
+            <p>Ich strebe eine Position an, um meine Fähigkeiten in der Softwareentwicklung in einem professionellen Umfeld
+                weiterentwickeln kann. </p> 
+            <a href="#Kontakt" class="btn1">Kontakt aufnehmen</a>
+            <a href="https://github.com/Mid-77" target="_blank" class="btn2"> GitHub
+                Profil</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <section id="Über mich">
+            <h3>Über mich</h3>
+            <p>Seit Februar 2024 absolviere ich eine Umschulung zum Fachinformatiker für Anwendungsentwicklung (IHK) bei
+                der GFN GmbH in Stuttgart. Den ersten Teil meiner Abschlussprüfung (AP1) habe ich bereits erfolgreich
+                bestanden.</p>
+            <br>
+            <p>Mein Ziel ist es nun, die im Rahmen meiner Umschulung erworbenen theoretischen Grundlagen in der beruflichen
+                Praxis anzuwenden und zu vertiefen. Ich möchte wertvolle Erfahrungen in der realen IT-Welt sammeln, um meinen
+                fachlichen Horizont gezielt zu erweitern und mich professionell weiterzuentwickeln. Das Praktikum bei Ihnen sehe
+                ich als ideale Chance, um von Experten zu lernen und den Übergang in die IT-Arbeitswelt erfolgreich zu
+                gestalten.</p><br>
+
+            <h4> Pflichtpraktikum </h4>
+
+            <hr style="border: 1px solid #005be4; width: 40%;">
+            <a href="PDF_Files/Voll_Bewerbung_Danno.pdf" target="_blank">
+            <h4 style="color: #005be4;"> Bewerbung (PDF) </h4>
+            </a>
+      
+            <br>
+            <h4> Ausbildung </h4>
+            <hr style="border: 1px solid #005be4; width: 40%;">
+            <a href="PDF_Files/Vorschlag_zur_verkürzte_Ausbildung.pdf" target="_blank">
+                <h4 style="color: #005be4;"> Vorschlag_zur_verkürzte_Ausbildung (PDF)</h4>
+            </a>
+            <br>
+                        
+            
+            <hr style="border: 1px solid #005be4; width: 40%;">
+        </section>
+
+        <section id="Fähigkeiten">
+            <h3>Technische Fähigkeiten</h3>
+            <div class="Fähigkeiten-grid">
+                <div class="Fähigkeit-category">
+                    <h4>💻 Programmiersprachen</h4>
+                    <div class="Fähigkeit-tags">
+                        <span>C++</span> <span>Python</span> <span>Java</span> 
+                    </div>
+                </div>
+                <div class="Fähigkeit-category">
+                    <h4>🌐 Webentwicklung</h4>
+                    <div class="Fähigkeit-tags">
+                        <span>HTML5</span> <span>CSS3</span> <span>JavaScript</span> <span>PHP</span>
+                    </div>
+                </div>
+                <div class="Fähigkeit-category">
+                    <h4>💾 Datenbanken</h4>
+                    <div class="Fähigkeit-tags">
+                        <span>MySQL</span> <span>SQL</span>
+                    </div>
+                </div>
+                <div class="Fähigkeit-category">
+                    <h4>⚙️ DevOps & Infrastruktur</h4>
+                    <div class="Fähigkeit-tags">
+                        <span>Linux</span> <span>Docker</span> <span>Git</span> <span>GitHub</span>
+                        <span>Netzwerkgrundlagen (TCP/IP)</span>
+                    </div>
+                </div>
+                <div class="Fähigkeit-category">
+                    <h4>👥 Projektmanagement</h4>
+                    <div class="Fähigkeit-tags">
+                        <span>Scrum</span> <span>Agile Methoden</span>
+                    </div>
+                </div>
+                <div class="Fähigkeit-category">
+                    <h4>📂 MS EDV-Kenntnisse</h4>
+                    <div class="Fähigkeit-tags">
+                        <span>MS Windows 10/11</span> <span>Word</span>
+                        <span>Excel</span> <span>PowerPoint</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="Ausbildungsweg Anwendungen">
+            <h3>Ausbildungsweg Anwendungen</h3>
+            <div class="Ausbildungsweg Anwendungen-Karte">
+       
+                <h4>01- FrontEnd </h4>
+                <a href="frontend.html" target="_blank">
+                    <h4 style="color: #005be4;"> FrontEnd (Html,Css,JS)</h4>
+                </a>
+                    <p>Gestaltung responsiver Benutzeroberflächen mit HTML5, CSS3 und JS für eine optimale User Experience.</p>
+                
+                    <a href="https://mh801.wordpress.com/?_gl=1*bevu6x*_gcl_au*Nzg1MzEzMjcuMTcyODA0NjQ5OA.." target="_blank">
+                        <h4 style="color: #005be4;"> Glückskekse (Teamprojekt)</h4>
+                    </a>
+                <p>"Während meiner Ausbildung habe ich mit meinen Kollegen an einem WordPress-Projekt gearbeitet. Unser Ziel war es, das
+                    Gelernte in HTML, CSS und JavaScript praktisch anzuwenden. Wir haben nicht nur das System genutzt, sondern auch
+                    eigene
+                    Anpassungen am Design und an der Struktur vorgenommen.</p>
+                <br>
+                <p><strong>Technologien:</strong> Html, Css, JS / Scrum</p>
+                <p><strong>Rolle:</strong> Entwickler im Team</p>
+    
+                <hr style="border: 1px solid #005be4; width: 40%;">
+                <br>
+                <h4>02- php </h4>
+                <a href="php.html" target="_blank">
+                    <h4 style="color: #005be4;"> PHP (Code)</h4>
+                </a>
+                    <p>Entwicklung dynamischer Web-Anwendungen durch serverseitige Logik, Formularverarbeitung und Session-Management.</p>
+                
+
+                <hr style="border: 1px solid #005be4; width: 40%;">
+                <br>
+                <h4>03- Python </h4>
+                <a href="python.html" target="_blank">
+                    <h4 style="color: #005be4;"> Python (Code)</h4>
+                </a>
+                <p>Sicherer Umgang mit den Grundlagen der objektorientierten Programmierung und Automatisierung kleiner Prozesse.</p>
+
+                <hr style="border: 1px solid #005be4; width: 40%;">
+                <br>
+                <h4>04- Java </h4>
+                <a href="java.html" target="_blank">
+                    <h4 style="color: #005be4;"> JAVA (Code)</h4>
+                </a>
+                <p>Praktische Anwendung von Java zur Lösung algorithmischer Aufgaben und Entwicklung strukturierter
+                Konsolenanwendungen.</p>
+                <hr style="border: 1px solid #005be4; width: 40%;">
+                <br>
+                <h4>05- Impressum </h4>
+                <a href="impressum.html" target="_blank">
+                    <h4 style="color: #005be4;"> Impressum (Document)</h4>
+                </a>
+                    <p>Gesetzliche Anbieterkennzeichnung gemäß § 5 TMG für die rechtliche Transparenz dieser Webseite.</p>
+                
+                <hr style="border: 1px solid #005be4; width: 40%;">
+                <br>
+                <h4>06- Datenschutz </h4>
+                <a href="datenschutz.html" target="_blank">
+                    <h4 style="color: #005be4;"> Datenschutz (Document)</h4>
+                </a>
+                    <p>Informationen zur Verarbeitung personenbezogener Daten gemäß der Datenschutz-Grundverordnung (DSGVO).</p>
+                
+                <hr style="border: 1px solid #005be4; width: 40%;">
+                <br>
+                <h4>07- IHK Projekt (Praxis)</h4>
+                <a href="PDF_Files/07_Länder_Quiz.pdf" target="_blank"> <h4 style="color: #005be4;">Länder-Quiz EU 1.0 (Teamprojekt : Abschlussprojekt)</h4></a>
+                <p>"Im Rahmen einer Vorbereitungsmaßnahme auf das IHK-Abschlussprojekt habe ich meine Programmierkenntnisse in einem
+                Teamprojekt praxisorientiert angewendet. Das Ziel war die Konzeption und Entwicklung einer interaktiven Quiz-Anwendung
+                über EU-Mitgliedstaaten."Eifn besonderer Fokus lag dabei auf der Offline-Funktionalität, um eine autarke Nutzung ohne
+                Internetverbindung zu gewährleisten."</p>
+                <br>
+                <p><strong>Technologien:</strong> Python / Scrum</p>
+                <p><strong>Rolle:</strong> Entwickler im Team</p>
+                <hr style="border: 1px solid #005be4; width: 40%;">
+            </div>
+        </section>
+
+        <section id="Werdegang">
+            <h3>Werdegang</h3>
+        
+            <div class="Zeitleiste">
+                <span class="Datum">02/2024 – Heute</span>
+                <h4>Ausbildung Fachinformatiker Anwendungsentwicklung (IHK)</h4>
+                <p>GFN GmbH, Stuttgart</p>
+                <p>Umschulung, Abschlussprüfung Teil 1 (Bestanden).</p>
+            </div>
+        
+            <div class="Zeitleiste">
+                <span class="Datum">2014 – 2023</span>
+                <h4>Neuorientierung & Sprachausbildung</h4>
+                <p>Einreise nach Deutschland, Besuch von Deutschkursen bis Niveau C1 und Vorbereitung auf eine berufliche
+                    Neuorientierung im IT-Bereich.</p>
+            </div>
+        
+            <div class="Zeitleiste">
+                <span class="Datum">02/2007 – 04/2013</span>
+                <h4>Lagerleitung & Import/Export Verwaltung</h4>
+                <p>Aleppo, Syrien</p>
+                <p>Umfangreiche Berufserfahrung im Handel mit PC & Elektronik sowie Ersatzteilen. Verantwortlich für Lager,
+                    Logistik und administrative Importvorgänge.</p>
+            </div>
+        
+            <div class="Zeitleiste">
+                <span class="Datum">06/2004 – 12/2007</span>
+                <h4>Praktikum in der Softwareentwicklung</h4>
+                <p>Firma Alafandi & Sbahi, Aleppo</p>
+                <p>Praktische Mitarbeit in der Entwicklung von Desktop-Anwendungen (C++, C#, HTML) sowie Einbindung einfacher
+                    SQL-Datenbankabfragen.</p>
+            </div>
+        
+            <div class="Zeitleiste">
+                <span class="Datum">1996 – 2006</span>
+                <h4>Techniker & Programmierer für Strickmaschinen</h4>
+                <p>Verschiedene Arbeitgeber, Aleppo</p>
+                <p>Langjährige Erfahrung als Programmierer, Techniker und im Kundenservice für computergesteuerte
+                    Textilmaschinen (SHIMA SEIKI, STOLL, EMM).</p>
+            </div>
+        </section>
+
+        <section id="Zertifikate">
+            <h3>Zertifikate</h3>
+            <div class="zertifikate-grid">
+                <div class="zertifikate-item">
+                    <h4>PCEP – Certified Entry-Level Python Programmer</h4>
+                    <p>Python Institute</p>
+                    <a href="PDF_Files/05_Certificate_Python.pdf" target="_blank" class="btn3"> PDF Anzeigen </a>
+                </div>
+                    <div class="zertifikate-item">
+                        <h4>EXIN Agile Scrum Foundation</h4>
+                        <p>Ausgestellt: Oktober 2024</p>
+                        <a href="PDF_Files/04_Certificate_Exin.pdf" target="_blank" class="btn3"> PDF Anzeigen </a>
+                    </div>
+                <div class="zertifikate-item">
+                    <h4>Sololearn</h4>
+                    <p>Ausgestellt: Ab 2023</p>
+                    <a href="PDF_Files/08_Sololearn_Certificates.pdf" target="_blank" class="btn3"> PDF Anzeigen </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="Kontakt">
+            <h3>Kontakt</h3>
+            <p>Gerne überzeuge ich Sie in einem persönlichen Gespräch von meinem Engagement.</p>
+            <br>
+            <ul class="Kontakt-info">
+                <li>📍 Cannstatter Str. 94, 70734 Fellbach</li>
+                <li>📧 <a href="mailto:m.i.danno.dev@gmail.com">m.i.danno.dev@gmail.com</a></li>
+                <li>📞 0176 6154 5871</li>
+                <li>🔗 <a href="https://github.com/Mid-77" target="_blank">github.com/Mid-77</a></li>
+                <li>🌐 <a href="http://midanno77.com" target="_blank">Kommt bald</a></li>
+            </ul>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 M. Ibrahim Danno. Alle Rechte vorbehalten.</p>
+        <button class="Btn2" onclick="window.location.href='impressum.html'" ;>Impressum</button> |
+        <button class="Btn2" onclick="window.location.href='datenschutz.html'" ;>Datenschutzerklärung</button><br>
+    </footer>
+
+</body>
+
+</html>

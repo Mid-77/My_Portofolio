@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhP</title>
+    <style>
+        /* CSS-Standardstile und Grundlege*/
+        /*  Global Farbvariablen um die Farben konsistent zu halten  */
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --container-color: #171b1f;
+            --accent-color: #e74c3c;
+            --light-bg: #ecf0f1;
+            --zurück: #daddde;
+            --text-color: #333;
+            --white: #ffffff;
+            --black: #363a3b;
+        }
+
+        /* Unverselle Stileinstellungen um die Standardränder und Abstände zu definieren */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 40px;
+            padding-bottom: 40px;
+        }
+
+        .nav h1 {
+            font-size: 3.5rem;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .button-aria {
+            display: flex;
+            background-color: var(--zurück);
+            padding-top: 20px;
+            border-radius: 50px;
+            border-color: var(--accent-color);
+            border-width: 1px;
+            border-style: solid;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .Btn {
+            display: flex;
+            color: var(--accent-color);
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            font-size: 30px;
+            padding: 30px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            flex-direction: center;
+        }
+
+        .Btn:hover {
+            border: 6px solid rgb(87, 46, 46);
+            text-decoration: none;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .container0{
+            background-color: var(--text-color);
+            padding: 50px;
+            align-items: center;
+            text-align: left;
+            line-height: 1.5;
+            padding-left: 260px;
+            padding-right: 260px;
+            font-weight: 600;
+            font-size: 5vw;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            margin-bottom: 30px;
+        }
+
+        .container0 p {
+            font-size: 1rem;
+            color: var(--black);
+        }
+        .container0 h2 {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+        }
+        .autside {
+            background-color: var(--white);
+            padding: 10px;
+            border-radius: 50px;
+            border-color: var(--accent-color);
+            border-width: 1px;
+            border-style: solid;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            margin: 30px;
+            
+        }
+
+        .inside {
+            background-color: var(--light-bg);
+            display: block;
+            padding: 20px;
+            border-radius: 50px;
+            border-color: var(--secondary-color);
+            border-width: 1px;
+            border-style: solid;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            font-size: medium;
+            color: var(--black);
+            unicode-bidi: isolate;
+            margin: 20px;
+            margin-inline: 1px;
+        }
+
+        .container {
+            background-color: var(--text-color);
+            padding: 50px;
+            align-items: center;
+            text-align: left;
+            line-height: 1.5;
+            padding-left: 260px;
+            padding-right: 260px;
+            font-weight: 600;
+            font-size: 1.3vw;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            margin-bottom: 30px;
+        }
+
+        .container p {
+            font-size: 1rem;
+            color: var(--white);
+        }
+        .container h2 {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+        }
+
+        section {
+            background-color: var(--white);
+            padding: 10px;
+            border-radius: 50px;
+            border-color: var(--accent-color);
+            border-width: 1px;
+            border-style: solid;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            font-size: 17px;
+        }
+
+        .Code {
+            background-color: var(--light-bg);
+            display: block;
+            padding: 25px;
+            border-radius: 50px;
+            border-color: var(--secondary-color);
+            border-width: 1px;
+            border-style: solid;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            font-family: Consolas;
+            font-size: small;
+            color: var(--accent-color);
+            unicode-bidi: isolate;
+            white-space: pre;
+            margin: 30px;
+            margin-inline: 5px;
+        }
+
+        .Zurück {
+            display: flex;
+            background-color: var(--zurück);
+            padding-top: 20px;
+            border-radius: 50px;
+            border-color: var(--accent-color);
+            border-width: 1px;
+            border-style: solid;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .Zurück-Btn {
+            display: flex;
+            color: var(--white);
+            background-color: var(--accent-color);
+            border-radius: 50%;
+            font-size: 30px;
+            padding: 20px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            flex-direction: center;
+        }
+
+        .Zurück-Btn:hover {
+            border: 6px solid rgb(87, 46, 46);
+            text-decoration: none;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .c-right {
+            display: flex;
+            color: var(--white);
+            font-size: 15px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        footer {
+            background: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .Btn2 {
+
+            color: var(--accent-color);
+            font-size: 15px;
+            font-weight: bolder;
+            justify-content: center;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+        }
+
+        .Btn2:hover {
+            text-decoration: underline;
+            border: 1px solid rgb(209, 63, 14);
+            box-shadow: none;
+        }
+    </style>
+</head>
+
+
+<body>
+    <nav class="nav">
+        <h1>PhP</h1>
+    </nav>
+
+
+    <div class="container0">
+        <h2><img src="icons/php.svg" style="width:35px"> Zusammenfassung</h2>
+        
+        <div class="autside">
+            <div class="inside">
+
+        <p>Im Rahmen meiner Ausbildung habe ich fundierte Kenntnisse in den grundlegenden PHP-Konzepten erworben.
+            Dazu gehörendie Ausgabe von Text und HTML, die Arbeit mit Variablen und Datentypen sowie die Verwendung von Kontrollstrukturen
+            wie if-Bedingungen und Schleifen (for, while, foreach), um Datenstrukturen zu bearbeiten.
+        </p><br>
+        <p>Ich habe gelernt, Benutzereingaben und Formulardaten sicher und effizient über die Superglobalen $_GET und $_POST zu
+            verarbeiten und mithilfe von $_SESSION Benutzerdaten über mehrere Seitenaufrufe hinweg zu speichern. Dadurch kann
+            ich interaktive Webseiten gestalten, die auf Benutzereingaben reagieren, wie etwa ToDo-Listen oder Produktlisten.
+        </p><br>
+        <p>Ein weiterer Schwerpunkt lag auf der dynamischen Erzeugung von HTML-Elementen. Mit Arrays und Schleifen kann ich
+            HTML-Listen und -Tabellen erstellen, die Inhalte je nach Datenlage flexibel anpassen. Zusätzlich habe ich gelernt,
+            mit isset() zu prüfen, ob Variablen und Array-Werte gesetzt sind, um Fehler zu vermeiden und den Code sauber und gut
+            lesbar zu gestalten.
+        </p><br>
+        <p>Diese Kenntnisse in PHP ermöglichen es mir, dynamische und benutzerfreundliche Webanwendungen zu entwickeln, die
+            optimal auf die Interaktion mit Benutzern ausgelegt sind. Unter diesem Text finden Sie einen Button, über den Sie
+            Beispielcodes einsehen können, die meine PHP-Kompetenzen veranschaulichen.
+        </p><br>
+        <p>Darüber hinaus habe ich im Rahmen meiner Ausbildung in einer Gruppenarbeit eine Beispielwebseite erstellt, die die
+            Integration verschiedener PHP-Konzepte zeigt, wie Anmeldung, Registrierung und Bestellungen. Diese Webseite
+            ermöglicht es Benutzern, sich zu registrieren, anzumelden und Produkte zu kaufen. Die Bestellungen werden sicher in
+            einer MySQL-Datenbank gespeichert und verwaltet.
+            Unten finden Sie einen Button, über den Sie die Beispielwebseite öffnen können. Diese Webseite veranschaulicht meine
+            Fähigkeit, PHP zu nutzen, um komplexe, datenbankgestützte Webanwendungen zu entwickeln, die optimal auf die
+            Interaktion mit Benutzern ausgelegt sind.
+        </p>
+        
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+    <h2><img src="icons/java.svg" style="width:35px"> Beispiel-01</h2>
+    <p>
+        In diesem ersten Beispiel habe ich die Grundlagen von PHP angewendet.
+        Ich habe gelernt, Variablen zu erstellen und logische Abfragen mit if/else zu machen.
+        Außerdem habe ich geübt, wie man mit Schleifen (for, while, foreach) Tabellen
+        und Listen automatisch in HTML generiert.
+    </p>
+    <br>
+        <section>
+            <pre class="Code">
+                <code>
+001  &lt;!DOCTYPE html&gt;
+002  &lt;html lang="de"&gt;
+003  &lt;head&gt;
+004      &lt;meta charset="UTF-8"&gt;
+005      &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+006      &lt;title&gt;Beispielübungen&lt;/title&gt;
+007  
+008      &lt;style&gt;
+009          table {
+010              background-color: #d3d3d3;
+011              font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+012              border: 2px solid #000;
+013              width: 80%;
+014              margin: 50px auto;
+015          }
+016          th, td {
+017              font-weight: normal;
+018              border: 2px solid #000;
+019              text-align: center;
+020              padding: 15px 40px;
+021              font-size: 18px;
+022          }
+023          th {
+024              background-color: #f2f2f2;
+025              font-weight: bold;
+026              font-size: 24px;
+027          }
+028      &lt;/style&gt;
+029  &lt;/head&gt;
+030  &lt;body&gt;
+031  
+032      &lt;h1&gt;Übung 1: Variablen und echo&lt;/h1&gt;
+033      &lt;?php
+034          $name = "Max";
+035          echo $name . "&lt;br&gt;&lt;br&gt;";
+036  
+037          $x = 8;
+038          $y = 6;
+039          $z = $x + $y;
+040          echo $z . "&lt;br&gt;&lt;br&gt;";
+041      ?&gt;
+042  
+043      &lt;h1&gt;Übung 2: Bedingungen (if, else)&lt;/h1&gt;
+044      &lt;?php
+045          $age = 20;
+046          if ($age &gt;= 18) {
+047              echo "Die Person ist volljährig!";
+048          } else {
+049              echo "Die Person ist minderjährig!";
+050          }
+051          echo "&lt;br&gt;&lt;br&gt;";
+052  
+053          $isStudent = true;
+054          if ($isStudent) {
+055              echo "Der Nutzer ist Student";
+056          } else {
+057              echo "Der Nutzer ist kein Student";
+058          }
+059          echo "&lt;br&gt;&lt;br&gt;";
+060      ?&gt;
+061  
+062      &lt;h1&gt;Übung 3: Schleifen (for, while)&lt;/h1&gt;
+063      &lt;?php
+064          for ($x = 1 ; $x &lt;= 10 ; $x++){
+065              echo "" . $x;
+066              echo "&lt;br&gt;";
+067          }
+068          echo "&lt;br&gt;&lt;br&gt;";
+069  
+070          $counter = 5;
+071          while ($counter &gt; 0) {
+072              echo "Counter: " . $counter;
+073              $counter--;
+074              echo "&lt;br&gt;";
+075          }
+076          echo "Counter hat den Wert $counter erreicht.";
+077          echo "&lt;br&gt;&lt;br&gt;";
+078      ?&gt;
+079  
+080      &lt;h1&gt;Übung 4: Arrays&lt;/h1&gt;
+081      &lt;?php
+082          $fruits = array("Apfel", "Banane", "Orange", "Traube");
+083          foreach ($fruits as $x) {
+084              echo "$x &lt;br&gt;";
+085          }
+086          echo "&lt;br&gt;&lt;br&gt;";
+087      ?&gt;
+088  
+089      &lt;h1&gt;Übung 5: Listen und Tabellen&lt;/h1&gt;
+090      &lt;h3&gt;Lieblingsbücher:&lt;/h3&gt;
+091      &lt;ul&gt;
+092          &lt;?php
+093              $books = array("&lt;li&gt;Harry Potter&lt;/li&gt;", "&lt;li&gt;Herr der Ringe&lt;/li&gt;", "&lt;li&gt;Game of Thrones&lt;/li&gt;", "&lt;li&gt;Narnia&lt;/li&gt;");
+094              foreach ($books as $x) {
+095                  echo $x;
+096              }
+097              echo "&lt;br&gt;&lt;br&gt;";
+098          ?&gt;
+099      &lt;/ul&gt;
+100 
+101     &lt;h3&gt;Multiplikationstabelle von 1 bis 5:&lt;/h3&gt;    
+102     &lt;table&gt;
+103         &lt;thead&gt;
+104             &lt;tr&gt;
+105                 &lt;th&gt;*&lt;/th&gt;
+106                 &lt;?php
+107                     for ($i = 1; $i &lt;= 5; $i++) {
+108                         echo "&lt;th&gt;$i&lt;/th&gt;";
+109                     }
+110                 ?&gt;
+111             &lt;/tr&gt;
+112         &lt;/thead&gt;
+113         &lt;tbody&gt;
+114             &lt;?php
+115                 for ($i = 1; $i &lt;= 5; $i++) {
+116                     echo "&lt;tr&gt;";
+117                     echo "&lt;th&gt;$i&lt;/th&gt;";
+118                     for ($j = 1; $j &lt;= 5; $j++) {
+119                         $result = $i * $j;
+120                         echo "&lt;td&gt;$result&lt;/td&gt;";
+121                     }
+122                     echo "&lt;/tr&gt;";
+123                 }
+124             ?&gt;
+125         &lt;/tbody&gt;
+126     &lt;/table&gt;
+127 
+128 &lt;/body&gt;
+129 &lt;/html&gt;
+                </code>
+            </pre>
+        </section>
+    </div>
+
+
+    <div class="container">
+        <h2><img src="icons/php.svg" style="width:35px"> Beispiel-02</h2>
+        <p>
+            In diesem zweiten Beispiel habe ich gelernt, wie man Funktionen (Functions) erstellt,
+            um Code wiederverwendbar zu machen. Ein weiterer Schwerpunkt war der Umgang mit
+            assoziativen Arrays, um komplexere Datenstrukturen zu verwalten. Ich habe geübt,
+            wie man Informationen gezielt aus diesen Arrays ausliest und sie mit Hilfe von
+            Schleifen dynamisch in Webseiten integriert.
+        </p>
+        <br>
+            <section>
+                <pre class="Code">
+                    <code>
+001  &lt;!DOCTYPE html&gt;
+002  &lt;html lang="de"&gt;
+003  &lt;head&gt;
+004      &lt;meta charset="UTF-8"&gt;
+005      &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+006      &lt;title&gt;Beispielübungen_2&lt;/title&gt;
+007  &lt;/head&gt;
+008  &lt;body&gt;
+009      
+010      &lt;h1&gt;Übung 1: Einfacher Umgang mit Variablen und Operationen&lt;/h1&gt;
+011      &lt;?php
+012          $preis1 = 19.99;
+013          $preis2 = 7.50;
+014          $anzahl = 5;
+015          $summe = $preis1 + $preis2;
+016          $summe_anzahl = $preis1 * $anzahl;
+017          echo $summe . "&lt;br&gt;&lt;br&gt;";
+018          echo $summe_anzahl . "&lt;br&gt;&lt;br&gt;";
+019      ?&gt;
+020  
+021      &lt;h1&gt;Übung 2: if-Bedingungen und Vergleiche&lt;/h1&gt;
+022      &lt;?php
+023          $temperature = 21;
+024          if ($temperature &lt;= 10) {
+025              echo "Kalt";
+026          } elseif ($temperature &lt;= 20) {
+027              echo "Mild";
+028          } else {
+029              echo "Heiß";
+030          }
+031          echo "&lt;br&gt;&lt;br&gt;";
+032  
+033          $zahl = 13;
+034          if ($zahl % 2 == 0) {
+035              echo "Die Zahl " . $zahl . " ist gerade.";
+036          } else {
+037              echo "Die Zahl " . $zahl . " ist ungerade.";
+038          }
+039      ?&gt;
+040  
+041      &lt;h1&gt;Übung 3: Schleifen (for, foreach, while)&lt;/h1&gt;
+042      &lt;?php
+043          for ($x = 1; $x &lt;= 100; $x++) {
+044              echo "" . $x;
+045              echo "&lt;br&gt;";
+046          }
+047          echo "&lt;br&gt;&lt;br&gt;";
+048          
+049          $name = ["Karl", "Egon", "Hans", "Horst", "Uwe"];
+050          foreach ($name as $x) {
+051              echo "$x &lt;br&gt;";
+052          }
+053          echo "&lt;br&gt;&lt;br&gt;";
+054          
+055          $counter = 10;
+056          while ($counter &gt; 0) {
+057              echo $counter;
+058              $counter--;
+059              echo "&lt;br&gt;";
+060          }
+061      ?&gt;
+062  
+063      &lt;h1&gt;Übung 4: Arrays&lt;/h1&gt;
+064      &lt;?php
+065          $personen = ["Anna" =&gt; 25, "Peter" =&gt; 48, "Günther" =&gt; 66, "Uwe" =&gt; 16];
+066          foreach ($personen as $x =&gt; $y) {
+067              echo $x . " ist " . $y . " Jahre alt. &lt;br&gt;";
+068          }
+069          $summeAlter = array_sum($personen);
+070          echo "Die Summe aller Alter beträgt: $summeAlter";
+071      ?&gt;
+072      
+073      &lt;h1&gt;Übung 5: Benutzerdefinierte Funktionen&lt;/h1&gt;
+074      &lt;?php
+075          function berechneFakultaet($n) {
+076              $fakultaet = 1;
+077              echo "$n! = ";
+078                  
+079              for ($i = $n; $i &gt; 0; $i--) {
+080                  $fakultaet *= $i;
+081                  echo $i; 
+082                  if ($i &gt; 1) echo " * "; 
+083              }
+084              echo " = $fakultaet";
+085          }
+086          $zahl = 5;
+087          echo berechneFakultaet($zahl);
+088          echo "&lt;br&gt;&lt;br&gt;";
+089  
+090          function greetUser($name) {
+091              echo "Hallo, $name! Schön, dich zu sehen.";
+092          }
+093          greetUser("Anna");
+094      ?&gt;
+095  
+096      &lt;h1&gt;Schwere Übungen&lt;/h1&gt;
+097      &lt;h1&gt;Übung 1: Multiplikationstabelle mit zweidimensionalem Array&lt;/h1&gt;
+098      
+099      &lt;?php
+100          $multiplikationsTabelle = [];
+101          for ($i = 1; $i &lt;= 10; $i++) {
+102              for ($j = 1; $j &lt;= 10; $j++) {
+103                  $multiplikationsTabelle[$i][$j] = $i * $j;
+104              }
+105          }
+106          echo "&lt;table border='1' cellspacing='0' cellpadding='5'&gt;";
+107          echo "&lt;thead&gt;";
+108          echo "&lt;tr&gt;&lt;th&gt;*&lt;/th&gt;";
+109              
+110          for ($i = 1; $i &lt;= 10; $i++) {
+111              echo "&lt;th&gt;$i&lt;/th&gt;"; 
+112          }
+113          echo "&lt;/tr&gt;&lt;/thead&gt;";
+114          echo "&lt;tbody&gt;";
+115  
+116          for ($i = 1; $i &lt;= 10; $i++) {
+117              echo "&lt;tr&gt;";
+118              echo "&lt;th&gt;$i&lt;/th&gt;"; 
+119              for ($j = 1; $j &lt;= 10; $j++) {
+120                  echo "&lt;td align='center'&gt;{$multiplikationsTabelle[$i][$j]}&lt;/td&gt;";
+121              }
+122              echo "&lt;/tr&gt;";
+123          }
+124          echo "&lt;/tbody&gt;";
+125          echo "&lt;/table&gt;";
+126      ?&gt;
+127  
+128      &lt;h1&gt;Übung 2: Dynamische Liste von Aufgaben (To-Do-Liste)&lt;/h1&gt;
+129      &lt;?php
+130          if (!isset($_SESSION["aufgaben"])) {
+131              $_SESSION["aufgaben"] = ["Einkaufen", "Haus putzen", "Programmieren üben"];
+132          }
+133  
+134          if ($_SERVER["REQUEST_METHOD"] == "POST") {
+135              if (!empty(trim($_POST["neueAufgaben"]))) {
+136                  $neueAufgaben = explode(",", trim($_POST['neueAufgaben'])); 
+137                  foreach ($neueAufgaben as $aufgabe) {
+138                      $aufgabe = trim($aufgabe); 
+139                      if (!empty($aufgabe)) {
+140                          $_SESSION['aufgaben'][] = $aufgabe;
+141                      }
+142                  }
+143              }
+144          }
+145      ?&gt;
+146  
+147      &lt;ul&gt;
+148          &lt;?php
+149              foreach ($_SESSION['aufgaben'] as $aufgabe) {
+150                  echo "&lt;li&gt;$aufgabe&lt;/li&gt;"; 
+151              }
+152          ?&gt;
+153      &lt;/ul&gt;
+154  
+155      &lt;form method="post"&gt;
+156          &lt;label&gt;Neue Aufgaben hinzufügen (durch Kommas getrennt):&lt;/label&gt;&lt;br&gt;
+157          &lt;input type="text" name="neueAufgaben" required&gt;
+158          &lt;input type="submit" value="Hinzufügen"&gt;
+159      &lt;/form&gt;
+160  
+161  &lt;/body&gt;
+162  &lt;/html&gt; 
+
+
+                </code>
+            </pre>
+        </section>
+    </div>
+
+
+    <div class="container">
+        <h2><img src="icons/php.svg" style="width:35px"> Beispiel-03</h2>
+        <p>
+            In diesem umfassenden Beispiel habe ich die Interaktion zwischen HTML-Formularen
+            und PHP-Verarbeitung vertieft. Ich habe gelernt, wie man Benutzereingaben mit
+            POST-Methoden empfängt, mathematische Operationen durchführt und Daten in
+            dynamischen To-Do-Listen verwaltet. Ein wichtiger Aspekt war die Nutzung von
+            Sessions, um Aufgaben dauerhaft zu speichern und sie als strukturierte HTML-Listen
+            auszugeben.
+        </p>
+        <br>
+        <section>
+            <pre class="Code">
+                        <code>
+                           
+001  &lt;?php
+002  session_start();
+003  ?&gt;
+004  
+005  &lt;!DOCTYPE html&gt;
+006  &lt;html lang="de"&gt;
+007  &lt;head&gt;
+008      &lt;meta charset="UTF-8"&gt;
+009      &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+010      &lt;title&gt;Beispielübungen_3&lt;/title&gt;
+011  &lt;/head&gt;
+012  &lt;body&gt;
+013  
+014      &lt;h2&gt;Übung 4: HTML-Formular und PHP-Verarbeitung&lt;/h2&gt;
+015      &lt;form method="post"&gt;
+016          &lt;label for="name"&gt;Name:&lt;/label&gt;
+017          &lt;input type="text" id="name" name="name"&gt;
+018          &lt;input type="submit" value="Absenden"&gt;
+019      &lt;/form&gt;&lt;br&gt;
+020  
+021      &lt;?php
+022      if (isset($_POST["name"])) {
+023          $name = $_POST["name"];
+024          echo $name;
+025      }
+026      ?&gt;
+027  
+028      &lt;h2&gt;Übung 5: Schleifen (for und while)&lt;/h2&gt;
+029      &lt;?php
+030      for ($i = 1; $i &lt;= 10; $i++) {
+031          echo $i;
+032          echo "&lt;br&gt;";
+033      }
+034      echo "&lt;br&gt;&lt;br&gt;";
+035  
+036      $counter = 5;
+037      while ($counter &gt;= 0) {
+038          echo $counter--;
+039          echo "&lt;br&gt;";
+040      }
+041      ?&gt;
+042  
+043      &lt;h2&gt;Übung 6: Arrays&lt;/h2&gt;
+044      &lt;?php
+045      $tage = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"];
+046      foreach ($tage as $x) {
+047          echo $x;
+048          echo "&lt;br&gt;";
+049      }
+050      ?&gt;
+051  
+052      &lt;h2&gt;Übung 7: HTML-Liste aus Array generieren&lt;/h2&gt;
+053      &lt;?php
+054      $hobbys = ["Fußball", "Motorrad", "Musik", "Reisen"];
+055      echo "&lt;ul&gt;";
+056      foreach ($hobbys as $hobby) {
+057          echo "&lt;li&gt;$hobby&lt;/li&gt;";
+058      }
+059      echo "&lt;/ul&gt;";
+060      ?&gt;
+061  
+062      &lt;h2&gt;Übung 8: Einfache HTML-Tabelle&lt;/h2&gt;
+063      &lt;?php
+064      $produkte = ["Apfel" =&gt; 0.5, "Banane" =&gt; 0.3, "Orange" =&gt; 0.8];
+065      echo "&lt;table border='1' cellspacing='0' cellpadding='5'&gt;";
+066      echo "&lt;tr&gt;&lt;th&gt;Produkt&lt;/th&gt;&lt;th&gt;Preis&lt;/th&gt;&lt;/tr&gt;";
+067      foreach ($produkte as $produkt =&gt; $preis) {
+068          echo "&lt;tr&gt;&lt;td&gt;$produkt&lt;/td&gt;&lt;td&gt;$preis €&lt;/td&gt;&lt;/tr&gt;";
+069      }
+070      echo "&lt;/table&gt;";
+071      ?&gt;
+072  
+073      &lt;h2&gt;Übung 9: Einfache mathematische Operationen&lt;/h2&gt;
+074      &lt;?php
+075      $a = 8;
+076      $b = 4;
+077      $summe = $a + $b;
+078      $differenz = $a - $b;
+079      $quotient = $a / $b;
+080      echo "Summe = " . $summe . "&lt;br&gt;";
+081      echo "Differenz = " . $differenz . "&lt;br&gt;";
+082      echo "Quotient = " . $quotient;
+083      ?&gt;
+084  
+085      &lt;h2&gt;Übung 10: Einfache Nutzerbegrüßung&lt;/h2&gt;
+086      &lt;?php
+087      $uhrzeit = date('H');
+088      if ($uhrzeit &gt;= 5 &amp;&amp; $uhrzeit &lt; 12) {
+089          echo "Guten Morgen!";
+090      } elseif ($uhrzeit &gt;= 12 &amp;&amp; $uhrzeit &lt; 18) {
+091          echo "Guten Tag!";
+092      } else {
+093          echo "Guten Abend!";
+094      }
+095      ?&gt;
+096  
+097      &lt;h2&gt;Übung 11: Kombination von HTML und PHP für Benutzerinteraktion&lt;/h2&gt;
+098      &lt;form method="post"&gt;
+099          &lt;label for="zahl1"&gt;Zahl 1:&lt;/label&gt;
+100          &lt;input type="number" id="zahl1" name="zahl1"&gt;
+101          &lt;br&gt;
+102          &lt;label for="zahl2"&gt;Zahl 2:&lt;/label&gt;
+103          &lt;input type="number" id="zahl2" name="zahl2"&gt;
+104          &lt;br&gt;&lt;br&gt;
+105          &lt;input type="submit" value="Berechnen"&gt;
+106      &lt;/form&gt;
+107      &lt;?php
+108      if (isset($_POST["zahl1"])) {
+109          $zahl1 = $_POST["zahl1"];
+110      }
+111      if (isset($_POST["zahl2"])) {
+112          $zahl2 = $_POST["zahl2"];
+113      }
+114      echo "&lt;br&gt;";
+115      $summe = $zahl1 + $zahl2;
+116      echo "Die Summe ist: " . $summe;
+117      ?&gt;
+118  
+119      &lt;h2&gt;Schwerere Übungen (inklusive 2D-Arrays und Tabellen)&lt;/h2&gt;
+120      &lt;h2&gt;Übung 2: Dynamische Liste von Aufgaben (To-Do-Liste)&lt;/h2&gt;
+121      &lt;?php
+122      if (!isset($_SESSION["todos"])){
+123          $_SESSION["todos"] = [];
+124      } 
+125      if (isset($_POST["todo"])){
+126          $_SESSION["todos"][] = $_POST["todo"];
+127      }
+128      ?&gt;
+129      &lt;form method="POST"&gt;
+130          Todos: &lt;br&gt;     
+131          &lt;?php
+132          echo "&lt;ul&gt;";
+133          foreach ($_SESSION["todos"] as $todo) {
+134              echo "&lt;li&gt;$todo&lt;/li&gt;";
+135          }
+136          echo "&lt;/ul&gt;";
+137          echo "&lt;input type='text' name='todo' &gt;";
+138          ?&gt;
+139          &lt;input type="submit" value="Senden"&gt;
+140      &lt;/form&gt;
+141  
+142      &lt;h2&gt;Übung 3: Mehrdimensionale Arrays und Tabellenausgabe&lt;/h2&gt;
+143      &lt;?php
+144      $schueler = [
+145          ["name" =&gt; "Anna", "klasse" =&gt; "5A", "note" =&gt; 1],
+146          ["name" =&gt; "Bernd", "klasse" =&gt; "5B", "note" =&gt; 2],
+147          ["name" =&gt; "Clara", "klasse" =&gt; "5A", "note" =&gt; 3],
+148      ];
+149      echo "&lt;table border='1' cellspacing='0' cellpadding='8' style='text-align: center;'&gt;";
+150      echo "&lt;tr&gt;&lt;th&gt;Name&lt;/th&gt;&lt;th&gt;Klasse&lt;/th&gt;&lt;th&gt;Note&lt;/th&gt;&lt;/tr&gt;";
+151      foreach ($schueler as $student) {
+152          echo "&lt;tr&gt;&lt;td&gt;" . $student['name'] . "&lt;/td&gt;&lt;td&gt;" . $student['klasse'] . "&lt;/td&gt;&lt;td&gt;" . $student['note'] . "&lt;/td&gt;&lt;/tr&gt;";
+153      }
+154      echo "&lt;/table&gt;&lt;br&gt;";
+155  
+156      function Durchschnittsnote($schueler) {
+157          $summe = 0;
+158          $anzahl = count($schueler);
+159          foreach ($schueler as $student) {
+160              $summe += $student["note"];
+161          }
+162          return ($anzahl &gt; 0) ? ($summe / $anzahl) : 0;
+163      }
+164      $durchschnittsnote = Durchschnittsnote($schueler);
+165      echo "Durchschnittsnote: " . $durchschnittsnote;
+166      ?&gt;
+167  
+168      &lt;h2&gt;Übung 4: Prime-Zahlen finden&lt;/h2&gt;
+169      &lt;?php
+170      function isPrime($n) {
+171          if ($n &lt;= 1) return false; 
+172          for ($i = 2; $i &lt; $n; $i++) {
+173              if ($n % $i == 0) return false; 
+174          }
+175          return true;
+176      }
+177      for ($n = 1; $n &lt;= 100; $n++) {
+178          if (isPrime($n)) echo $n . "&lt;br&gt;";
+179      }
+180      ?&gt;
+181  
+182      &lt;h2&gt;Übung 5: Erweitertes Array-Manipulations-Training&lt;/h2&gt;
+183      &lt;?php
+184      $produkte = [
+185          ["name" =&gt; "Apfel", "preis" =&gt; 0.5, "menge" =&gt; 10],
+186          ["name" =&gt; "Banane", "preis" =&gt; 0.3, "menge" =&gt; 20],
+187          ["name" =&gt; "Orange", "preis" =&gt; 0.8, "menge" =&gt; 15],
+188      ];
+189      echo "&lt;table border='1' cellspacing='0' cellpadding='8' style='text-align: center;'&gt;";
+190      echo "&lt;tr&gt;&lt;th&gt;Name&lt;/th&gt;&lt;th&gt;Preis&lt;/th&gt;&lt;th&gt;Menge&lt;/th&gt;&lt;th&gt;Gesamtpreis&lt;/th&gt;&lt;/tr&gt;";
+191      foreach ($produkte as $item) {
+192          $gesamt = $item['preis'] * $item['menge'];
+193          echo "&lt;tr&gt;&lt;td&gt;".$item['name']."&lt;/td&gt;&lt;td&gt;".$item['preis']."&lt;/td&gt;&lt;td&gt;".$item['menge']."&lt;/td&gt;&lt;td&gt;$gesamt&lt;/td&gt;&lt;/tr&gt;";
+194      }
+195      echo "&lt;/table&gt;&lt;br&gt;";
+196  
+197      function Gesamtwert($produkte) {
+198          $summe = 0;
+199          foreach ($produkte as $item) { $summe += ($item['preis'] * $item['menge']); }
+200          return $summe; 
+201      }
+202      echo "Gesamtwert des Warenbestandes: " . Gesamtwert($produkte) . " €.";
+203      ?&gt;
+204  
+205      &lt;h2&gt;Übung 6: Einfache Formulare und Bedingungsprüfung&lt;/h2&gt;
+206      &lt;?php
+207      if (!isset($_SESSION["zahlen"])) $_SESSION["zahlen"] = [];
+208      if (isset($_POST["zahl"])) $_SESSION["zahlen"][] = $_POST["zahl"];
+209      ?&gt;
+210      &lt;form method="POST"&gt;
+211          Zahl: &lt;br&gt;     
+212          &lt;?php
+213          echo "&lt;ul&gt;";
+214          foreach ($_SESSION["zahlen"] as $zahl) {
+215              $status = ($zahl % 2 == 0) ? "Gerade" : "Ungerade";
+216              echo "&lt;li&gt;$zahl = $status&lt;/li&gt;";
+217          }
+218          echo "&lt;/ul&gt;";
+219          echo "&lt;input type='number' name='zahl'&gt;";
+220          ?&gt;
+221          &lt;input type="submit" value="Senden"&gt;
+222      &lt;/form&gt;
+223  
+224      &lt;h2&gt;Übung 7: Fibbonacci Zahlen&lt;/h2&gt;
+225      &lt;?php
+226      $a = 0; $b = 1; echo "&lt;ul&gt;"; 
+227      for ($i = 0; $i &lt; 100; $i++) {
+228          echo "&lt;li&gt;$b&lt;/li&gt;"; 
+229          $fibo = $b; $b = $a + $b; $a = $fibo; 
+230      }
+231      echo "&lt;/ul&gt;"; 
+232      ?&gt;
+233  
+234      &lt;h2&gt;Komplexe Übungen: FizzBuzz&lt;/h2&gt;
+235      &lt;?php
+236      echo "&lt;ol&gt;";
+237      for ($a = 1; $a &lt; 101; $a++) {
+238          if ($a % 15 == 0) echo "FizzBuzz&lt;br&gt;";
+239          elseif ($a % 3 == 0) echo "Fizz&lt;br&gt;";
+240          elseif ($a % 5 == 0) echo "Buzz&lt;br&gt;";
+241          else echo $a . "&lt;br&gt;";
+242      }  
+243      echo "&lt;/ol&gt;";
+244      ?&gt;
+245  &lt;/body&gt;
+246  &lt;/html&gt;
+
+                    </code>
+                </pre>
+        </section>
+    </div>  
+
+
+    <div class="Zurück">
+        <button class="Zurück-Btn" onclick="window.location.href='index.html'" ;>Zurück</button>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 M. Ibrahim Danno. Alle Rechte vorbehalten.</p>
+        <button class="Btn2" onclick="window.location.href='Impressum.html'" ;>Impressum</button> |
+        <button class="Btn2" onclick="window.location.href='datenschutz.html'" ;>Datenschutzerklärung</button><br>
+    </footer>
+
+</body>
+
+</html>

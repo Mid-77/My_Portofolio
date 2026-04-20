@@ -1,0 +1,18 @@
+# macOS System Files 
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon\r\r
+
+# VS Code Editor Files
+.vscode/
+*.code-workspace
+
+# Windows System Files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Temporary & Log Files
+*.log
+*.tmp

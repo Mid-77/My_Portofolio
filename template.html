@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template</title>
+    <style>
+        /* CSS-Standardstile und Grundlege*/
+        /*  Global Farbvariablen um die Farben konsistent zu halten  */
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --container-color: #171b1f;
+            --accent-color: #e74c3c;
+            --light-bg: #ecf0f1;
+            --zurück: #daddde;
+            --text-color: #333;
+            --white: #ffffff;
+            --black: #363a3b;
+        }
+
+        /* Unverselle Stileinstellungen um die Standardränder und Abstände zu definieren */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 40px;
+            padding-bottom: 40px;
+        }
+
+        .nav h1 {
+            font-size: 3.5rem;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .button-aria {
+            display: flex;
+            background-color: var(--zurück);
+            padding-top: 20px;
+            border-radius: 50px;
+            border-color: var(--accent-color);
+            border-width: 1px;
+            border-style: solid;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .Btn {
+            display: flex;
+            color: var(--accent-color);
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            font-size: 30px;
+            padding: 30px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            flex-direction: center;
+        }
+
+        .Btn:hover {
+            border: 6px solid rgb(87, 46, 46);
+            text-decoration: none;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .container0{
+            background-color: var(--text-color);
+            padding: 50px;
+            align-items: center;
+            text-align: left;
+            line-height: 1.5;
+            padding-left: 260px;
+            padding-right: 260px;
+            font-weight: 600;
+            font-size: 5vw;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            margin-bottom: 30px;
+        }
+
+        .container0 p {
+            font-size: 1rem;
+            color: var(--accent-color);
+        }
+        .container0 h2 {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+        }
+        .container0 li {
+            margin-left: 50px;
+            margin-bottom: 20px;
+        }
+        .autside {
+            background-color: var(--white);
+            padding: 10px;
+            border-radius: 50px;
+            border-color: var(--accent-color);
+            border-width: 1px;
+            border-style: solid;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            margin: 30px;
+            
+        }
+
+        .inside {
+            background-color: var(--light-bg);
+            display: block;
+            padding: 20px;
+            border-radius: 50px;
+            border-color: var(--secondary-color);
+            border-width: 1px;
+            border-style: solid;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            font-size: medium;
+            color: var(--black);
+            unicode-bidi: isolate;
+            margin: 20px;
+            margin-inline: 1px;
+        }
+
+        .container {
+            background-color: var(--text-color);
+            padding: 50px;
+            align-items: center;
+            text-align: left;
+            line-height: 1.5;
+            padding-left: 260px;
+            padding-right: 260px;
+            font-weight: 600;
+            font-size: 1.3vw;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            margin-bottom: 30px;
+        }
+
+        .container p {
+            font-size: 1rem;
+            color: var(--white);
+        }
+        .container h2 {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+        }
+
+        section {
+            background-color: var(--white);
+            padding: 10px;
+            border-radius: 50px;
+            border-color: var(--accent-color);
+            border-width: 1px;
+            border-style: solid;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            font-size: 17px;
+        }
+
+        .Code {
+            background-color: var(--light-bg);
+            display: block;
+            padding: 25px;
+            border-radius: 50px;
+            border-color: var(--secondary-color);
+            border-width: 1px;
+            border-style: solid;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            font-family: Consolas;
+            font-size: small;
+            color: var(--accent-color);
+            unicode-bidi: isolate;
+            white-space: pre;
+            margin: 30px;
+            margin-inline: 5px;
+        }
+
+        .Zurück {
+            display: flex;
+            background-color: var(--zurück);
+            padding-top: 20px;
+            border-radius: 50px;
+            border-color: var(--accent-color);
+            border-width: 1px;
+            border-style: solid;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .Zurück-Btn {
+            display: flex;
+            color: var(--white);
+            background-color: var(--accent-color);
+            border-radius: 50%;
+            font-size: 30px;
+            padding: 20px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            flex-direction: center;
+        }
+
+        .Zurück-Btn:hover {
+            border: 6px solid rgb(87, 46, 46);
+            text-decoration: none;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .c-right {
+            display: flex;
+            color: var(--white);
+            font-size: 15px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        footer {
+            background: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .Btn2 {
+
+            color: var(--accent-color);
+            font-size: 15px;
+            font-weight: bolder;
+            justify-content: center;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+        }
+
+        .Btn2:hover {
+            text-decoration: underline;
+            border: 1px solid rgb(209, 63, 14);
+            box-shadow: none;
+        }
+    </style>
+</head>
+
+
+<body>
+    <nav class="nav">
+        <h1>Template</h1>
+    </nav>
+
+
+    <div class="container0">
+        <h2><img src="icon-path" style="width:35px"> hauptsatz</h2>
+        
+        <div class="autside">
+            <div class="inside">
+    <p>Satz</p>
+    <br>
+            
+        <ul>
+            <li>Text</li>
+          
+        </ul>
+    <p>Satz</p>
+    <br>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+    <h2><img src="icon-path" style="width:35px"> beispiel-01 </h2>
+    <p>Satz</p>
+
+    <br>
+        <section>
+            <pre class="Code">
+                <code>
+Code
+                </code>
+            </pre>
+        </section>
+    </div>
+
+
+    <div class="container">
+        <h2><img src="icon-path" style="width:35px"> beispiel-02 </h2>
+        <p>Satz</p>
+        <br>
+        <section>
+            <pre class="Code">
+                <code>
+CODE
+                </code>
+            </pre>
+        </section>
+    </div>
+
+
+    <div class="container">
+        <h2><img src="icon-path" style="width:35px"> beispiel-03 </h2>
+        <p>Satz</p>
+
+        <br>
+        <section>
+            <pre class="Code">
+                    <code>
+Code
+                    </code>
+                </pre>
+        </section>
+    </div>  
+
+
+    <div class="Zurück">
+        <button class="Zurück-Btn" onclick="window.location.href='index.html'" ;>Zurück</button>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 M. Ibrahim Danno. Alle Rechte vorbehalten.</p>
+        <button class="Btn2" onclick="window.location.href='Impressum.html'" ;>Impressum</button> |
+        <button class="Btn2" onclick="window.location.href='datenschutz.html'" ;>Datenschutzerklärung</button><br>
+    </footer>
+
+</body>
+
+</html>

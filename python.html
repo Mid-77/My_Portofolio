@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python</title>
+    <style>
+        /* CSS-Standardstile und Grundlege*/
+        /*  Global Farbvariablen um die Farben konsistent zu halten  */
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --container-color: #171b1f;
+            --accent-color: #e74c3c;
+            --light-bg: #ecf0f1;
+            --zurück: #daddde;
+            --text-color: #333;
+            --white: #ffffff;
+            --black: #363a3b;
+        }
+
+        /* Unverselle Stileinstellungen um die Standardränder und Abstände zu definieren */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 40px;
+            padding-bottom: 40px;
+        }
+
+        .nav h1 {
+            font-size: 3.5rem;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .button-aria {
+            display: flex;
+            background-color: var(--zurück);
+            padding-top: 20px;
+            border-radius: 50px;
+            border-color: var(--accent-color);
+            border-width: 1px;
+            border-style: solid;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .Btn {
+            display: flex;
+            color: var(--accent-color);
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            font-size: 30px;
+            padding: 30px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            flex-direction: center;
+        }
+
+        .Btn:hover {
+            border: 6px solid rgb(87, 46, 46);
+            text-decoration: none;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .container0{
+            background-color: var(--text-color);
+            padding: 50px;
+            align-items: center;
+            text-align: left;
+            line-height: 1.5;
+            padding-left: 260px;
+            padding-right: 260px;
+            font-weight: 600;
+            font-size: 5vw;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            margin-bottom: 30px;
+        }
+
+        .container0 p {
+            font-size: 1rem;
+            color: var(--accent-color);
+        }
+        .container0 h2 {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+        }
+        .container0 li {
+            margin-left: 50px;
+            margin-bottom: 20px;
+        }
+        .autside {
+            background-color: var(--white);
+            padding: 10px;
+            border-radius: 50px;
+            border-color: var(--accent-color);
+            border-width: 1px;
+            border-style: solid;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            margin: 30px;
+            
+        }
+
+        .inside {
+            background-color: var(--light-bg);
+            display: block;
+            padding: 20px;
+            border-radius: 50px;
+            border-color: var(--secondary-color);
+            border-width: 1px;
+            border-style: solid;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            font-size: medium;
+            color: var(--black);
+            unicode-bidi: isolate;
+            margin: 20px;
+            margin-inline: 1px;
+        }
+
+        .container {
+            background-color: var(--text-color);
+            padding: 50px;
+            align-items: center;
+            text-align: left;
+            line-height: 1.5;
+            padding-left: 260px;
+            padding-right: 260px;
+            font-weight: 600;
+            font-size: 1.3vw;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            margin-bottom: 30px;
+        }
+
+        .container p {
+            font-size: 1rem;
+            color: var(--white);
+        }
+        .container h2 {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+        }
+
+        section {
+            background-color: var(--white);
+            padding: 10px;
+            border-radius: 50px;
+            border-color: var(--accent-color);
+            border-width: 1px;
+            border-style: solid;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            font-size: 17px;
+        }
+
+        .Code {
+            background-color: var(--light-bg);
+            display: block;
+            padding: 25px;
+            border-radius: 50px;
+            border-color: var(--secondary-color);
+            border-width: 1px;
+            border-style: solid;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            font-family: Consolas;
+            font-size: small;
+            color: var(--accent-color);
+            unicode-bidi: isolate;
+            white-space: pre;
+            margin: 30px;
+            margin-inline: 5px;
+        }
+
+        .Zurück {
+            display: flex;
+            background-color: var(--zurück);
+            padding-top: 20px;
+            border-radius: 50px;
+            border-color: var(--accent-color);
+            border-width: 1px;
+            border-style: solid;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .Zurück-Btn {
+            display: flex;
+            color: var(--white);
+            background-color: var(--accent-color);
+            border-radius: 50%;
+            font-size: 30px;
+            padding: 20px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            flex-direction: center;
+        }
+
+        .Zurück-Btn:hover {
+            border: 6px solid rgb(87, 46, 46);
+            text-decoration: none;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .c-right {
+            display: flex;
+            color: var(--white);
+            font-size: 15px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        footer {
+            background: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .Btn2 {
+
+            color: var(--accent-color);
+            font-size: 15px;
+            font-weight: bolder;
+            justify-content: center;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+        }
+
+        .Btn2:hover {
+            text-decoration: underline;
+            border: 1px solid rgb(209, 63, 14);
+            box-shadow: none;
+        }
+    </style>
+</head>
+
+
+<body>
+    <nav class="nav">
+        <h1>Python</h1>
+    </nav>
+
+
+    <div class="container0">
+        <h2><img src="icons/python.svg" style="width:35px"> Zusammenfassung</h2>
+        
+        <div class="autside">
+            <div class="inside">
+    <p>Im Rahmen meiner Ausbildung habe ich vielseitige Kenntnisse in Python erworben und diese durch zahlreiche vorgegebene Übungen und Projekte praktisch angewendet. Dazu gehören:</p><br>
+            
+        <ul>
+            <li>Grundlagen: Ich habe den Umgang mit Strings, Variablen und mathematischen Operatoren gelernt und diese in
+                Projekten wie dem Band Name Generator und dem Tip Calculator angewendet.</li>
+            <li>Funktionen & Rekursion: Ich habe das Erstellen von Funktionen und die Nutzung von Rekursion intensiv geübt,
+                unter anderem bei der Fibonacci-Folge.</li>
+            <li>Mathematische Programme: Zu meinen Übungen gehörten Programme zur Berechnung der Fibonacci-Folge, der
+                Primfaktorenzerlegung und das Generieren von Lottozahlen.</li>
+            <li>Schleifen & Bedingungen: Durch Übungen wie den Password Generator habe ich das Arbeiten mit For- und
+                While-Schleifen sowie bedingten Anweisungen verinnerlicht.<br>
+                In der Lernumgebung von Reeborg's World konnte ich die Anwendung von For- und While-Schleifen in Python
+                praktisch umsetzen. Dabei habe ich gelernt, wie man Wiederholungen und Bedingungen im Code nutzt, um Reeborg
+                effizient durch verschiedene Welten zu navigieren. <br>Durch diese Übungen konnte ich die grundlegende Logik von
+                Schleifen und Funktionen vertiefen. Unten finden Sie einen Button, der Sie direkt zur Reeborg's World-Seite
+                führt. Dort können Sie sich die Übungen anschauen und, wenn Sie möchten, selbst daran arbeiten.</li>
+        </ul>
+
+                <p>Diese Lernprojekte haben mir geholfen, eine solide Basis in Python aufzubauen und praktische Programmierlösungen zu
+                    entwickeln.</p>
+                    <br>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+    <h2><img src="icons/python.svg" style="width:35px"> Password Generator </h2>
+    <p>Der Password Generator ist ein praktisches Beispiel für die Anwendung von Schleifen und Zufallszahlen in Python. 
+        Dieses Programm ermöglicht es Nutzern, ein sicheres Passwort zu erstellen, 
+        indem es zufällig Zeichen aus verschiedenen Kategorien kombiniert.</p>
+
+    <br>
+        <section>
+            <pre class="Code">
+                <code>
+001  import random
+002  
+003  letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w',<br> 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+004  numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+005  symbols = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
+006      
+007  print("Welcome to the PyPassword Generator")
+008  nr_letters = int(input("How many letters would you like in your password?\n")) 
+009  nr_symbols = int(input("How many symbols would you like?\n"))
+010  nr_numbers = int(input("How many numbers would you like?\n"))
+011      
+012  passwort_list = []
+013      
+014  for i in range(nr_letters):
+015      passwort_list.append(random.choice(letters))
+016  for i in range(nr_symbols):
+017      passwort_list.append(random.choice(symbols))
+018  for i in range(nr_numbers):
+019      passwort_list.append(random.choice(numbers))
+020      
+021  random.shuffle(passwort_list)
+022      
+023  password = ""
+024  for i in passwort_list:
+025      password += i
+026      
+027  print(f"Ihr Passwort lautet: {password}")
+                </code>
+            </pre>
+        </section>
+    </div>
+
+
+    <div class="container">
+        <h2><img src="icons/python.svg" style="width:35px"> Tip Calculator</h2>
+        <p>Der Tip Calculator ist ein einfaches Projekt, das den Umgang mit Benutzereingaben und grundlegenden mathematischen
+            Operationen zeigt. Benutzer können den Rechnungsbetrag und den gewünschten Trinkgeldprozentsatz eingeben, woraufhin
+            der Calculator das Trinkgeld und den Gesamtbetrag berechnet.</p>
+
+        <br>
+        <section>
+            <pre class="Code">
+                <code>
+01  print("Welcome to the Tip Calculator!")print("Hello, welcome to our Program!")
+
+02    rechnung = input("Wie hoch ist die komplette Rechnung in €?\n")
+
+03    trinkgeld = input("Wie viel % Trinkgeld soll gegeben werden?\n")
+
+04    personen = input("Auf wie viele Personen soll die Rechnung aufgeteilt werden?\n")
+
+05    rechnung = float(rechnung)
+06    personen = int(personen)
+07    trinkgeld = float(trinkgeld)
+
+08    trinkgeldinbetrag = rechnung * trinkgeld / 100
+09    gesamtbetrag = rechnung + trinkgeldinbetrag
+10    numeric_result = gesamtbetrag / personen
+
+11    print(f"Betrag pro Person: {numeric_result:.2f}")
+
+
+                </code>
+            </pre>
+        </section>
+    </div>
+
+
+    <div class="container">
+        <h2><img src="icons/php.svg" style="width:35px"> Primfaktorzerlegung</h2>
+        <p>Die Primfaktorzerlegung ist ein wichtiges Konzept in der Mathematik, das die Zerlegung einer Zahl in ihre
+            Primfaktoren darstellt. In diesem Projekt wird eine Funktion erstellt, die alle Primfaktoren einer gegebenen Zahl
+            berechnet. Dies erfolgt durch wiederholte Division der Zahl, um die kleinsten Primfaktoren zu finden.</p>
+
+        <br>
+        <section>
+            <pre class="Code">
+                        <code>
+01 def prime_factors(n):
+02      factors = []
+03      while n % 2 == 0:
+04          factors.append(2)
+05          n //= 2
+06      for i in range(3, int(n ** 0.5) + 1, 2):
+07          while n % i == 0:
+08              factors.append(i)
+09          n //= i
+10     if n > 2:
+11      factors.append(n)
+12     return factors
+13 def main():
+14      try:
+15          number = int(input("Geben Sie eine Zahl ein: "))
+16          if number <= 0: 
+17              print("Bitte geben Sie eine positive Zahl größer als 0 ein.") 
+18          else: 
+19              factors=prime_factors(number) 
+20              print(f"Die Primfaktorenzerlegung von {number} ist: {' * '.join(map(str, factors))}")
+21      except ValueError:
+22         print("Bitte geben Sie eine gültige Zahl ein.")
+23 if __name__ == "__main__":
+24      antwort = "j"  
+25      while antwort == "j":
+26           main()
+27           antwort = input("Noch einmal? (j)")                           
+
+                    </code>
+                </pre>
+        </section>
+    </div>  
+
+
+    <div class="Zurück">
+        <button class="Zurück-Btn" onclick="window.location.href='index.html'" ;>Zurück</button>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 M. Ibrahim Danno. Alle Rechte vorbehalten.</p>
+        <button class="Btn2" onclick="window.location.href='Impressum.html'" ;>Impressum</button> |
+        <button class="Btn2" onclick="window.location.href='datenschutz.html'" ;>Datenschutzerklärung</button><br>
+    </footer>
+
+</body>
+
+</html>
