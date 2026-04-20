@@ -293,18 +293,33 @@
         }
 
         /* müsste hinzugefügt werden: / Basic Responsiveness / um die seite zu optimieren mit allen Geräten */
+   
+        /* Basic Responsiveness - um die Seite auf verschiedenen Bildschirmgrößen gut aussehen zu lassen */ 
         @media (max-width: 768px) {
-        .hero-content h2 {
-        font-size: 2rem;
-        }
-
-        nav ul {
-        display: none;
-        }
-
-        section {
-        padding: 25px 15px;
-        }
+            .hero-content h2 {
+                font-size: 2rem;
+            }
+            .hero-content img {
+                width: 200px;
+                height: 200px;
+            }
+            nav {
+                flex-direction: column;
+                padding-top: 10px;
+            }
+            nav ul {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                margin-top: 10px;
+                padding: 0;
+            }
+            nav ul li {
+                margin: 5px 10px;
+            }
+            section {
+                padding: 25px 15px;
+            }
         }
     </style>
 </head>
