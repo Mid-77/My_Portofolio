@@ -128,32 +128,32 @@
             padding: 50px;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
         }
+
         .Zurück {
             display: flex;
             background-color: var(--zurück);
-            padding-top: 20px;
+            padding-top: 10px;
+            padding-bottom: 1px;
             border-radius: 50px;
             border-color: var(--accent-color);
-            border-width: 2px;
+            border-width: 1px;
             border-style: solid;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
             justify-content: center;
             align-items: center;
             margin-bottom: 20px;
         }
-
         .Zurück-Btn {
             display: flex;
             color: var(--white);
             background-color: var(--accent-color);
             border-radius: 50%;
-            font-size: 30px;
-            padding: 20px;
-            margin-bottom: 20px;
+            font-size: 25px;
+            padding: 15px;
+            margin-bottom: 10px;
             cursor: pointer;
             flex-direction: center;
         }
-
         .Zurück-Btn:hover {
             border: 6px solid rgb(87, 46, 46);
             text-decoration: none;
@@ -191,7 +191,7 @@
             border: 1px solid rgb(209, 63, 14);
             box-shadow: none;
         }
-        
+
         /* Mobile Responsiveness - Anpassung der Stile für kleinere Bildschirme */
         @media (max-width: 768px) {
             .container0, .container {
@@ -221,6 +221,10 @@
     <nav class="nav">
         <h1>Datenschutz-new</h1>
     </nav>
+    <div class="Zurück">
+        <button class="Zurück-Btn" onclick="window.location.href='index.html#Ausbildungsweg'">Zurück</button>
+    </div>
+
 
     <div class="container">
 
