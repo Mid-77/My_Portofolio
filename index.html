@@ -121,7 +121,7 @@
 
             /* Hauptcontainer für den Ticker */
         .status-ticker {
-            width: 85%;
+            width: 65%;
             overflow: hidden;                        /* Versteckt den Text, der über den Container hinausgeht */
             background: #c81a07;
             color:var(--white);
@@ -364,8 +364,10 @@
             }
               /* Responsive : Anpassungen für Mobilgeräte */
             .status-ticker {
+                display: flex;
                 font-size: 0.85rem; /* Kleinere Schriftart für Handys */
                 padding: 6px 0;
+                margin:auto;
             }
             .ticker-text {
                 animation-duration: 12s; /* Schnellerer Durchlauf auf kleineren Bildschirmen */
