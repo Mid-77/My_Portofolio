@@ -107,7 +107,8 @@
             font-size: 1.2rem;
             margin-bottom: 1.5rem;
         }
-        .Status-Anzeige a{
+
+        /* .Status-Anzeige a {
             background: var(--accent-color);
             color: var(--light-bg);
             padding: 5px 15px;
@@ -115,7 +116,46 @@
             font-size: 0.9rem;
             display: inline-block;
             margin-bottom: 15px;
+
+        } */
+
+            /* Hauptcontainer für den Ticker */
+        .status-ticker {
+            width: 85%;
+            overflow: hidden;                        /* Versteckt den Text, der über den Container hinausgeht */
+            background: #c81a07;
+            color:var(--white);
+            border-color: var(--secondary-color);
+            border-width: 3px;
+            border-style: solid;
+            margin: 10px auto;
+            padding: 10px 0;
+            white-space: nowrap;                      /* Verhindert den Zeilenumbruch */
+            border-bottom: 1px solid #ddd;
+            border-radius: 50px;                   /* Abgerundete Ecken */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Schatten */
             
+        }
+
+        /* Definition der Textbewegung */
+        .ticker-text {           
+            font-size: 18px;
+            display: inline-block;
+            padding-left: 100%;                       /* Startposition außerhalb des rechten Randes */
+            animation: marquee 12s linear infinite;
+            animation-delay: -4s;   /* Animationseigenschaften */
+         
+        }
+        .ticker-text:hover {
+            animation-play-state: paused;
+            text-shadow: 0 0 10px;
+            background-color: var(--primary-color);
+        }
+
+        /* Animation : Definiert den Bewegungsablauf */
+        @keyframes marquee {
+            0% { transform: translateX(0); }           /* Startpunkt */
+            100% { transform: translateX(-100%); }    /* Endpunkt: Text ist komplett links verschwunden */
         }
 
         .btn1 {
@@ -322,6 +362,15 @@
             nav ul li {
                 margin: 5px 10px;
             }
+              /* Responsive : Anpassungen für Mobilgeräte */
+            .status-ticker {
+                font-size: 0.85rem; /* Kleinere Schriftart für Handys */
+                padding: 6px 0;
+            }
+            .ticker-text {
+                animation-duration: 12s; /* Schnellerer Durchlauf auf kleineren Bildschirmen */
+            }
+
             section {
                 padding: 25px 15px;
             }
@@ -348,12 +397,22 @@
     <div class="hero">
         <div class="hero-content">
             <img src ='bild/Personal_01.png' alt="Profilbild" > <br> 
+
+            <!-- 
             <div class="Status-Anzeige"><a href="PDF_Files/Voll_Bewerbung_Danno.pdf" target="_blank">Suche Pflichtpraktikum (Mai 2026 - Feb 2027) Bewerbung PDF</a></div>
-            <div class="Status-Anzeige"><a href="PDF_Files/Vorschlag_zur_verkürzte_Ausbildung.pdf" target="_blank">Bei Ausbildung (Wenn Möglich ist) PDF</a></div>
+            <div class="Status-Anzeige"><a href="PDF_Files/Vorschlag_zur_verkürzte_Ausbildung.pdf" target="_blank">BeiAusbildung (Wenn Möglich ist) PDF</a></div>
+            -->
+            
             <h2>Fachinformatiker<br>Anwendungsentwicklung</h2>
-            <p>Ich strebe eine Position an, um meine Fähigkeiten in der Softwareentwicklung in einem professionellen Umfeld
-                weiterentwickeln kann. </p> 
-            <a href="#Kontakt" class="btn1">Kontakt aufnehmen</a>
+            <p>Ich strebe eine Position an, um meine Fähigkeiten in der Softwareentwicklung in einem professionellen Umfeld weiterentwickeln kann. </p>
+
+            <div class="status-ticker">
+                <div class="ticker-text">
+                    Status: 🟢 Suche ein Pflichtpraktikum (ab 21.05.2026 - 17.02.2027) oder eine Ausbildung ( wenn möglich ) .|.  Searching for a Pflichtpraktikum or Ausbildung...
+                </div>
+            </div>
+            
+             <a href="#Kontakt" class="btn1">Kontakt aufnehmen</a>
             <a href="https://github.com/Mid-77" target="_blank" class="btn2"> GitHub Profil</a>
         </div>
     </div>
