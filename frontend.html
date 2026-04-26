@@ -17,6 +17,10 @@
             --text-color: #333;
             --white: #ffffff;
             --black: #363a3b;
+            --btn1-color:#244c79;
+            --btn2-color:#933b3b;
+            --btn3-color:#324ea2;
+            --btn4-color:#3281b6;
         }
     
         /* Unverselle Stileinstellungen um die Standardränder und Abstände zu definieren */
@@ -162,19 +166,24 @@
             margin-bottom: 20px;
         }
 
-        .Zurück-Btn {
-            display: flex;
+        .Zurück-btn {
+            display: inline-block;
+            text-decoration: none;
             color: var(--white);
             background-color: var(--accent-color);
+            border-color: var(--black);
             border-radius: 50%;
-            font-size: 25px;
-            padding: 15px;
-            margin-bottom: 10px;
+            border-width: 3px;
+            border-style: solid;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+            font-size: 20px;
+            padding: 10px;
+            margin: 10px;
+            margin-bottom: 15px;
             cursor: pointer;
             flex-direction: center;
         }
-
-        .Zurück-Btn:hover {
+        .Zurück-btn:hover {
             border: 6px solid rgb(87, 46, 46);
             text-decoration: none;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
@@ -195,18 +204,22 @@
             margin-top: 20px;
         }
 
-        .Btn2 {
-
-            color: var(--accent-color);
-            font-size: 15px;
-            font-weight: bolder;
-            justify-content: center;
-            background-color: transparent;
-            border: none;
+         .btn4 {
+            display: inline-block; 
+            text-decoration: none; 
+            background-color: var(--btn4-color);
+            color: var(--white);
+            padding: 5px 20px;
+            border-radius: 5px;
             cursor: pointer;
+            transition: background-color 0.3s;
+            font-weight: bold;
+            margin: 0.5rem;
+            border: none; 
         }
 
-        .Btn2:hover {
+        .btn4:hover {
+            background: #b5ccda;
             text-decoration: underline;
             border: 1px solid rgb(209, 63, 14);
             box-shadow: none;
@@ -244,7 +257,7 @@
     </nav>
 
     <div class="Zurück">
-        <button class="Zurück-Btn" onclick="window.location.href='index.html#Ausbildungsweg'">Zurück</button>
+        <a href="index.html#Ausbildungsweg" class="Zurück-btn">Zurück</a>
     </div>
 
 
@@ -585,13 +598,13 @@ document.addEventListener(&#39;DOMContentLoaded&#39;, function () {
 </div>
 
     <div class="Zurück">
-        <button class="Zurück-Btn" onclick="window.location.href='index.html#Ausbildungsweg'">Zurück</button> 
+        <a href="index.html#Ausbildungsweg" class="Zurück-btn">Zurück</a>
     </div>
 
     <footer>
         <p>&copy; 2026 M. Ibrahim Danno. Alle Rechte vorbehalten.</p>
-        <button class="Btn2" onclick="window.location.href='Impressum.html'" ;>Impressum</button> |
-        <button class="Btn2" onclick="window.location.href='datenschutz.html'" ;>Datenschutzerklärung</button><br>
+        <a href="impressum.html" class="btn4">Impressum</a> |
+        <a href="datenschutz.html" class="btn4">Datenschutzerklärung</a><br>
     </footer>
 
 </body>

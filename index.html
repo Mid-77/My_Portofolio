@@ -16,6 +16,11 @@
             --light-bg: #ecf0f1;
             --text-color: #333;
             --white: #ffffff;
+            --btn1-color:#244c79;
+            --btn2-color:#933b3b;
+            --btn3-color:#324ea2;
+            --btn4-color:#3281b6;
+
         }
 
         /* Unverselle Stileinstellungen um die Standardränder und Abstände zu definieren */
@@ -130,49 +135,10 @@
             margin-bottom: 15px;
 
         } 
-        
-            /* Hauptcontainer für den Ticker */
-        <!-- .status-ticker {
-            width: 45%;
-            overflow: hidden;                        /* Versteckt den Text, der über den Container hinausgeht */
-            background: #c81a07;
-            color:var(--white);
-            border-color: var(--secondary-color);
-            border-width: 3px;
-            border-style: solid;
-            margin: 10px auto;
-            padding: 10px 0;
-            white-space: nowrap;                      /* Verhindert den Zeilenumbruch */
-            border-bottom: 1px solid #ddd;
-            border-radius: 50px;                   /* Abgerundete Ecken */
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Schatten */
-            
-        } -->
-        
-        /* Definition der Textbewegung */
-        .ticker-text {           
-            font-size: 18px;
-            display: inline-block;
-            padding-left: 100%;                       /* Startposition außerhalb des rechten Randes */
-            animation: marquee 12s linear infinite;
-            animation-delay: -4s;   /* Animationseigenschaften */
-         
-        }
-        .ticker-text:hover {
-            animation-play-state: paused;
-            text-shadow: 0 0 10px;
-            background-color: var(--primary-color);
-        }
-
-        /* Animation : Definiert den Bewegungsablauf */
-        @keyframes marquee {
-            0% { transform: translateX(0); }           /* Startpunkt */
-            100% { transform: translateX(-100%); }    /* Endpunkt: Text ist komplett links verschwunden */
-        }
 
         .btn1 {
             display: inline-block;
-            background:#244c79 ;
+            background:var(--btn1-color) ;
             color: var(--white);
             padding: 10px 30px;
             text-decoration: none;
@@ -188,7 +154,7 @@
 
         .btn2 {
             display: inline-block;
-            background:#933b3b;
+            background:var(--btn2-color);
             color: var(--white);
             padding: 10px 30px;
             text-decoration: none;
@@ -204,14 +170,13 @@
 
         .btn3 {
             display: inline-block;
-            background:#324ea2;
+            background:var(--btn3-color);
             color: var(--white);
             padding: 5px 20px;
             text-decoration: none;
             border-radius: 5px;
             font-weight: bold;
-            transition: background 0.3s;
-            
+            transition: background 0.3s;           
             margin-top: 10px;
         }
 
@@ -332,17 +297,24 @@
             padding: 20px;
             margin-top: 20px;
         }
-        .Btn2 {
-            color: var(--accent-color);
-            font-size: 15px;
-            font-weight: bolder;
-            justify-content: center;
-            background-color: transparent;
-            border: none;
+
+        
+        .btn4 {
+            display: inline-block; 
+            text-decoration: none; 
+            background-color: var(--btn4-color);
+            color: var(--white);
+            padding: 5px 20px;
+            border-radius: 5px;
             cursor: pointer;
+            transition: background-color 0.3s;
+            font-weight: bold;
+            margin: 0.5rem;
+            border: none; 
         }
 
-        .Btn2:hover {
+        .btn4:hover {
+            background: #b5ccda;
             text-decoration: underline;
             border: 1px solid rgb(209, 63, 14);
             box-shadow: none;
@@ -647,7 +619,7 @@
             <div class="zertifikate-grid">
                 <div class="zertifikate-item">
                     <h4>PCEP – Certified Entry-Level Python Programmer</h4>
-                    <p>Python Institute</p>
+                    <p>Ausgestellt: january 2025</p>
                     <a href="PDF_Files/Certificate_Python.pdf" target="_blank" class="btn3"> PDF Anzeigen </a>
                 </div>
                     <div class="zertifikate-item">
@@ -657,7 +629,7 @@
                     </div>
                 <div class="zertifikate-item">
                     <h4>Sololearn</h4>
-                    <p>Ausgestellt: Ab 2023</p>
+                    <p>Ausgestellt: 2023</p>
                     <a href="PDF_Files/Sololearn_Certificates.pdf" target="_blank" class="btn3"> PDF Anzeigen </a>
                 </div>
             </div>
@@ -679,8 +651,12 @@
 
     <footer>
         <p>&copy; 2026 M. Ibrahim Danno. Alle Rechte vorbehalten.</p>
-        <button class="Btn2" onclick="window.location.href='impressum.html'" ;>Impressum</button> |
-        <button class="Btn2" onclick="window.location.href='datenschutz.html'" ;>Datenschutzerklärung</button><br>
+
+        <!-- <button class="Btn2" onclick="window.location.href='impressum.html'" ;>Impressum</button> |
+        <button class="Btn2" onclick="window.location.href='datenschutz.html'" ;>Datenschutzerklärung</button><br> -->
+
+        <a href="impressum.html" class="btn4">Impressum</a> |
+        <a href="datenschutz.html" class="btn4">Datenschutzerklärung</a><br>
     </footer>
 
 </body>
